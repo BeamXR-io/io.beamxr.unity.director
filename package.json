@@ -1,0 +1,32 @@
+{
+  "name": "io.beamxr.unity.director",
+  "author": {
+    "name": "BeamXR",
+    "email": "support@beamxr.io"
+  },
+  "displayName": "BeamXR Director Kit",
+  "version": "0.1.0",
+  "description": "The package provides useful tools to enhance and improve your game's streams and recordings.",
+  "keywords": [
+    "oculus",
+    "vr",
+    "Standalone",
+    "Meta",
+    "Quest",
+    "Streaming",
+    "Twitch"
+  ],
+  "documentationUrl": "https://docs.beamxr.io/",
+  "dependencies": {
+    "io.beamxr.unity.streaming": "0.7.0",
+    "com.unity.xr.interaction.toolkit": "3.0.1",
+    "com.unity.textmeshpro": "3.0.0"
+  },
+  "samples": [
+	{
+      "displayName": "Director Full Example",
+      "description": "A quick start scene showing off all the features of the Director package.",
+      "path": "Examples~/Director Example"
+    }
+  ]
+}
