@@ -1,0 +1,20 @@
+{
+    "name": "BeamXR.Director.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3c5927d4c695b684b9bccbf0bdf5712d",
+        "GUID:1fa272d591462e6458d1bfcc17595ab8",
+        "GUID:a5fb8e2034cbd9242aecd01d82fe04e6"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
