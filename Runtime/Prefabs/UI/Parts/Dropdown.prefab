@@ -388,8 +388,8 @@ GameObject:
   - component: {fileID: 1706778355910651381}
   - component: {fileID: 4657556457664254281}
   - component: {fileID: 1057472157866881014}
+  - component: {fileID: 2449557682847649260}
   - component: {fileID: 9099471933341367003}
-  - component: {fileID: 5736747252599564769}
   - component: {fileID: 2873211272907628831}
   m_Layer: 0
   m_Name: Dropdown
@@ -406,7 +406,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5329160380957646376}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000014901161}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -458,6 +458,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 6
+--- !u!114 &2449557682847649260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5329160380957646376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf55dd44d8795354eaf0e4a60c8a5c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToAnimate: {fileID: 1975069483037279127}
+  _animationTime: 0.08
 --- !u!114 &9099471933341367003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,25 +534,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_AlphaFadeSpeed: 0.15
---- !u!114 &5736747252599564769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329160380957646376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07b3638c2f5db5b479ff24c2859713d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PokeFollowTransform: {fileID: 1975069483037279127}
-  m_SmoothingSpeed: 16
-  m_ReturnToInitialPosition: 1
-  m_ApplyIfChildIsTarget: 1
-  m_ClampToMaxDistance: 1
-  m_MaxDistance: 8
-  m_PokeFilter: {fileID: 0}
 --- !u!114 &2873211272907628831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,7 +1021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5223995336250004316}
   - component: {fileID: 7142167237330243593}
-  - component: {fileID: 4696671195600021147}
+  - component: {fileID: 4696904591369802498}
   - component: {fileID: 1376959966965676921}
   - component: {fileID: 5333127343870839925}
   - component: {fileID: 6929272555181554866}
@@ -1105,7 +1100,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!114 &4696671195600021147
+--- !u!114 &4696904591369802498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1114,16 +1109,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7949706774561937721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07b3638c2f5db5b479ff24c2859713d4, type: 3}
+  m_Script: {fileID: 11500000, guid: cf55dd44d8795354eaf0e4a60c8a5c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PokeFollowTransform: {fileID: 3673522857358946333}
-  m_SmoothingSpeed: 16
-  m_ReturnToInitialPosition: 1
-  m_ApplyIfChildIsTarget: 1
-  m_ClampToMaxDistance: 1
-  m_MaxDistance: 8
-  m_PokeFilter: {fileID: 0}
+  _objectToAnimate: {fileID: 3673522857358946333}
+  _animationTime: 0.08
 --- !u!222 &1376959966965676921
 CanvasRenderer:
   m_ObjectHideFlags: 0

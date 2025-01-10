@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 2759706469389984469}
   - component: {fileID: 3151611430086667169}
   - component: {fileID: 1547713241505406030}
-  - component: {fileID: 8919208112245257535}
+  - component: {fileID: 6243461063147734467}
   - component: {fileID: 7581134462758421412}
   - component: {fileID: 1785526599956333506}
   m_Layer: 5
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8919208112245257535
+--- !u!114 &6243461063147734467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,16 +369,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2842778922465518639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07b3638c2f5db5b479ff24c2859713d4, type: 3}
+  m_Script: {fileID: 11500000, guid: cf55dd44d8795354eaf0e4a60c8a5c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PokeFollowTransform: {fileID: 8345045232889732754}
-  m_SmoothingSpeed: 16
-  m_ReturnToInitialPosition: 1
-  m_ApplyIfChildIsTarget: 1
-  m_ClampToMaxDistance: 1
-  m_MaxDistance: 8
-  m_PokeFilter: {fileID: 0}
+  _objectToAnimate: {fileID: 8345045232889732754}
+  _animationTime: 0.08
 --- !u!114 &7581134462758421412
 MonoBehaviour:
   m_ObjectHideFlags: 0
