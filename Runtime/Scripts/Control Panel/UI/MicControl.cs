@@ -25,8 +25,11 @@ namespace BeamXR.Director.ControlPanel
 
         protected override void UpdateVisual()
         {
-            UpdateText(Mathf.Round(BeamStreamingManager.Instance.MicrophoneVolume * 100f) + "%");
-            _enabledToggle.SetIsOnWithoutNotify(BeamStreamingManager.Instance.RecordMicrophoneAudio);
+            if (BeamStreamingManager.Instance != null)
+            {
+                UpdateText(Mathf.Round(BeamStreamingManager.Instance.MicrophoneVolume * 100f) + "%");
+                _enabledToggle.SetIsOnWithoutNotify(BeamStreamingManager.Instance.RecordMicrophoneAudio);
+            }
         }
     }
 }
