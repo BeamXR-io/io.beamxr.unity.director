@@ -966,7 +966,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465a965ca58fecf41958de602a9879ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideFromCamera: 0
+  _cameraController: {fileID: 0}
+  _hideType: 0
+  _changeObjectLayer: 1
 --- !u!54 &9112906239803470505
 Rigidbody:
   m_ObjectHideFlags: 0
