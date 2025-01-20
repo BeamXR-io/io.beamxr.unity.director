@@ -1,6 +1,4 @@
 using BeamXR.Streaming.Core.Media;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BeamXR.Director.Camera

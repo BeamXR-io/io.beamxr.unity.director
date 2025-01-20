@@ -1,8 +1,6 @@
 using UnityEngine;
 using BeamXR.Streaming.Core;
-using UnityEngine.UI;
 using TMPro;
-using System.Text.RegularExpressions;
 
 namespace BeamXR.Director.ControlPanel
 {

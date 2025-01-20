@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using BeamXR.Streaming;
+using BeamXR.Streaming.Core;
 
 namespace BeamXR.Director.ControlPanel
 {
@@ -137,10 +137,10 @@ namespace BeamXR.Director.ControlPanel
 
         private void SetAuthenticated()
         {
-            _button.gameObject.SetActive(_streamingManager.StreamingState == Streaming.Core.StreamingState.Disconnected);
+            _button.gameObject.SetActive(_streamingManager.StreamingState == StreamingState.Disconnected);
             _buttonText.text = "Logout";
             _text.text = $"Logged in to BeamXR as\n<color=#4B89C5><b>{_streamingManager.Me.nickname}</b></color>";
-            if(_streamingManager.StreamingState != Streaming.Core.StreamingState.Disconnected)
+            if(_streamingManager.StreamingState != StreamingState.Disconnected)
             {
                 _text.text += "\nPlease stop streaming to logout";
             }
