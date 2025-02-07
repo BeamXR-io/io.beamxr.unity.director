@@ -142,14 +142,20 @@ namespace BeamXR.Director.Camera
 
         private void ChangeObjectLayers(bool hide)
         {
-            for (int i = 0; i < _renderers.Length; i++)
+            if (_renderers != null)
             {
-                _renderers[i].gameObject.layer = hide ? BeamStreamingCamera.Instance.BeamIgnoreLayer : _rendererInts[i];
+                for (int i = 0; i < _renderers.Length; i++)
+                {
+                    _renderers[i].gameObject.layer = hide ? BeamStreamingCamera.Instance.BeamIgnoreLayer : _rendererInts[i];
+                }
             }
 
-            for (int i = 0; i < _canvases.Length; i++)
+            if (_canvases != null)
             {
-                _canvases[i].gameObject.layer = hide ? BeamStreamingCamera.Instance.BeamIgnoreLayer : _canvasInts[i];
+                for (int i = 0; i < _canvases.Length; i++)
+                {
+                    _canvases[i].gameObject.layer = hide ? BeamStreamingCamera.Instance.BeamIgnoreLayer : _canvasInts[i];
+                }
             }
         }
 

@@ -5,7 +5,7 @@
     "email": "support@beamxr.io"
   },
   "displayName": "BeamXR Director Kit",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "The package provides useful tools to enhance and improve your game's streams and recordings.",
   "keywords": [
     "oculus",
@@ -18,7 +18,7 @@
   ],
   "documentationUrl": "https://docs.beamxr.io/",
   "dependencies": {
-    "io.beamxr.unity.streaming": "0.7.2",
+    "io.beamxr.unity.streaming": "0.7.3",
     "com.unity.xr.interaction.toolkit": "3.0.1",
     "com.unity.textmeshpro": "3.0.0"
   },
