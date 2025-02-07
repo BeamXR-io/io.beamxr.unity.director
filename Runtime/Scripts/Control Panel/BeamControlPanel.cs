@@ -31,8 +31,10 @@ namespace BeamXR.Director.ControlPanel
 
         protected override void Awake()
         {
+            base.Awake();
             FindParts();
             _unityEvents.OnAuthenticationChanged.AddListener(AuthenticationChanged);
+            AuthenticationChanged(_streamingManager.AuthState);
             _cameraTransform = UnityEngine.Camera.main.transform;
         }
 

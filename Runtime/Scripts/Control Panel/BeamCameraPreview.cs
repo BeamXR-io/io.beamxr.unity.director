@@ -9,11 +9,6 @@ namespace BeamXR.Director.ControlPanel
         [SerializeField]
         private RawImage _cameraPreviewImage;
 
-        protected override void Awake()
-        {
-            base.Awake();
-        }
-
         private void OnEnable()
         {
             if(_unityEvents != null)
