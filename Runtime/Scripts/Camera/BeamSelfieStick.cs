@@ -14,19 +14,19 @@ namespace BeamXR.Director.Camera
         protected override void Awake()
         {
             base.Awake();
-            gameObject.SetActive(_cameraController.CurrentSettings.cameraView == CameraView.ObjectAttached);
+            gameObject.SetActive(_streamingCamera.CurrentCameraSettings.cameraView == CameraView.ObjectAttached);
         }
 
         protected override void CameraSettingsChanged()
         {
             bool wasActive = gameObject.activeInHierarchy;
-            bool enable = _cameraController.CurrentSettings.cameraView == CameraView.ObjectAttached;
+            bool enable = _streamingCamera.CurrentCameraSettings.cameraView == CameraView.ObjectAttached;
             gameObject.SetActive(enable);
             if (wasActive != enable)
             {
                 if (enable)
                 {
-                    _cameraController.AddFollowTransform(_cameraTransform, 0);
+                    _streamingCamera.AddTransformFollow(_cameraTransform, 0);
                     if (_spawnPoint != null)
                     {
                         transform.position = _spawnPoint.position;
@@ -35,7 +35,7 @@ namespace BeamXR.Director.Camera
                 }
                 else
                 {
-                    _cameraController.RemoveTransform(_cameraTransform);
+                    _streamingCamera.RemoveTransformFollow(_cameraTransform);
                 }
             }
         }

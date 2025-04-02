@@ -19,16 +19,16 @@ namespace BeamXR.Director.ControlPanel
 
         private void ChangeSmoothing(int increment)
         {
-            CameraSettings settings = _cameraController.CurrentSettings;
+            CameraSettings settings = _streamingCamera.CurrentCameraSettings;
             settings.smoothingAmount = Mathf.Clamp(settings.smoothingAmount + increment, 0, 10);
             settings.smoothingAmount = Mathf.Round(settings.smoothingAmount);
             
-            _cameraController.UpdateCameraSettings(settings);
+            _streamingCamera.UpdateCameraSettings(settings);
         }
 
         protected override string UpdateText()
         {
-            return _cameraController.CurrentSettings.smoothingAmount.ToString();
+            return _streamingCamera.CurrentCameraSettings.smoothingAmount.ToString();
         }
     }
 }

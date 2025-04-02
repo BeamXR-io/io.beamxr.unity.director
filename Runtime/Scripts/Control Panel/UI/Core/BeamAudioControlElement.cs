@@ -11,7 +11,10 @@ namespace BeamXR.Director.ControlPanel
         protected override void Awake()
         {
             base.Awake();
-            _enabledToggle.onValueChanged.AddListener(ToggleChange);
+            if (_enabledToggle != null)
+            {
+                _enabledToggle.onValueChanged.AddListener(ToggleChange);
+            }
         }
 
         private void ToggleChange(bool value)

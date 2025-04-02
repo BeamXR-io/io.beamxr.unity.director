@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fbd57299a0cfa45a825bd6bf1d9d86, type: 3}
+  m_Name: Director Readme
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: 4d9ed949d27ac4e449e65e845aee9a87, type: 3}
+  title: BeamXR Director Example
+  scene: {fileID: 102900000, guid: d5386d0fca6eb5c4ca1488289f9ce853, type: 3}
+  sections:
+  - heading: 
+    text: This scene shows off how to get started using all the features of the BeamXR
+      Director package.\nFor more detailed explanation and help, please visit our
+      documentation.
+    linkText: BeamXR Documentation
+    url: https://docs.beamxr.io
+    pingSceneElement: 
+    settingsPage: 
+    assetLinkText: 
+    assetLink: {fileID: 0}
+    assetLinkOpens: 0
+    image: {fileID: 0}
+    imageHeight: 0
+  - heading: 
+    text: <color=red>Please make sure to import the Unity XRI "Starter Assets" sample
+      before trying to run this scene.</color>\nThese demo tools are built using
+      XRI 3.0.
+    linkText: 
+    url: 
+    pingSceneElement: 
+    settingsPage: 
+    assetLinkText: 
+    assetLink: {fileID: 0}
+    assetLinkOpens: 0
+    image: {fileID: 0}
+    imageHeight: 0
+  - heading: 
+    text: We highly recommend reducing the <b>Near-Far Interactor > Sphere Interaction
+      Caster > Cast Radius</b> to 0.025 or lower to improve small, direct interactions.
+      This must be done for both controllers/hands.
+    linkText: 
+    url: 
+    pingSceneElement: Camera Offset/Left Controller/Near-Far Interactor
+    settingsPage: 
+    assetLinkText: 
+    assetLink: {fileID: 0}
+    assetLinkOpens: 0
+    image: {fileID: 0}
+    imageHeight: 0
+  - heading: 
+    text: 
+    linkText: 
+    url: 
+    pingSceneElement: Camera Offset/Right Controller/Near-Far Interactor
+    settingsPage: 
+    assetLinkText: 
+    assetLink: {fileID: 0}
+    assetLinkOpens: 0
+    image: {fileID: 0}
+    imageHeight: 0
+  - heading: Streaming Manager
+    text: The central control hub of the BeamXR experience. You will call most of
+      your functions directly through this, but can receive updates by relying on
+      the BeamUnityEvents script.
+    linkText: 
+    url: 
+    pingSceneElement: BeamXR-Streaming/Beam Streaming Manager
+    settingsPage: 
+    assetLinkText: 
+    assetLink: {fileID: 0}
+    assetLinkOpens: 0
+    image: {fileID: 0}
+    imageHeight: 0
+  - heading: Streaming Camera
+    text: The Streaming Camera is the viewpoint that will be output to your stream.
+      It provides simple controls and attaches directly to your transform.
+    linkText: 
+    url: 
+    pingSceneElement: BeamXR-Streaming/Beam Streaming Camera
+    settingsPage: 
+    assetLinkText: 
+    assetLink: {fileID: 0}
+    assetLinkOpens: 0
+    image: {fileID: 0}
+    imageHeight: 0
+  - heading: Camera Controller
+    text: 'The Camera Controller is a feature pack camera operator, providing numerous
+      useful camera tools such as: smoothing, various camera view points, height
+      adjustments, presets, and more. It is highly recommended to use this as you
+      can pre-define custom camera setups from the get-go, without having to code
+      any extra logic.'
+    linkText: 
+    url: 
+    pingSceneElement: BeamXR Objects/BeamXR Camera Controller
+    settingsPage: 
+    assetLinkText: 
+    assetLink: {fileID: 0}
+    assetLinkOpens: 0
+    image: {fileID: 0}
+    imageHeight: 0
+  - heading: Control Panel
+    text: The BeamXR Control Panel holds all of the core features that your player
+      will be able to access when interacting with BeamXR.\nIt is a good starting
+      point for building your own interactions, with numerous simple scripts and
+      tools to get you up and running.
+    linkText: 
+    url: 
+    pingSceneElement: BeamXR Objects/BeamXR Control Panel
+    settingsPage: 
+    assetLinkText: 
+    assetLink: {fileID: 0}
+    assetLinkOpens: 0
+    image: {fileID: 0}
+    imageHeight: 0

@@ -14,28 +14,28 @@ namespace BeamXR.Director.ControlPanel
         protected override void UpdateSettings()
         {
             base.UpdateSettings();
-            _minus.interactable = _cameraController.CurrentSettings.cameraView != CameraView.FirstPerson;
-            _plus.interactable = _cameraController.CurrentSettings.cameraView != CameraView.FirstPerson;
+            _minus.interactable = _streamingCamera.CurrentCameraSettings.cameraView != CameraView.FirstPerson;
+            _plus.interactable = _streamingCamera.CurrentCameraSettings.cameraView != CameraView.FirstPerson;
         }
 
         protected override string UpdateText()
         {
-            return _cameraController.CurrentSettings.zDistance.ToString() + "m";
+            return _streamingCamera.CurrentCameraSettings.zDistance.ToString() + "m";
         }
 
         protected override void Minus()
         {
-            _cameraController.UpdateCameraSettings(ChangeDistance(-_distanceChangeAmount));
+            _streamingCamera.UpdateCameraSettings(ChangeDistance(-_distanceChangeAmount));
         }
 
         protected override void Plus()
         {
-            _cameraController.UpdateCameraSettings(ChangeDistance(_distanceChangeAmount));
+            _streamingCamera.UpdateCameraSettings(ChangeDistance(_distanceChangeAmount));
         }
 
         private CameraSettings ChangeDistance(float amount)
         {
-            CameraSettings settings = _cameraController.CurrentSettings;
+            CameraSettings settings = _streamingCamera.CurrentCameraSettings;
 
             settings.zDistance = Mathf.Clamp(settings.zDistance + amount, _minimumDistance, _maximumDistance);
 

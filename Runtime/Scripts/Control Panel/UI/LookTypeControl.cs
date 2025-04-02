@@ -25,7 +25,7 @@ namespace BeamXR.Director.ControlPanel
 
         private void ViewChanged(int index)
         {
-            CameraSettings settings = _cameraController.CurrentSettings;
+            CameraSettings settings = _streamingCamera.CurrentCameraSettings;
             switch (index)
             {
                 case 0:
@@ -38,13 +38,13 @@ namespace BeamXR.Director.ControlPanel
                     settings.lookType = CameraLookType.LookPosition;
                     break;
             }
-            _cameraController.UpdateCameraSettings(settings);
+            _streamingCamera.UpdateCameraSettings(settings);
         }
 
         protected override void UpdateSettings()
         {
-            _dropdown.interactable = _cameraController.CurrentSettings.cameraView != CameraView.FirstPerson;
-            _dropdown.SetValueWithoutNotify((int)_cameraController.CurrentSettings.lookType);
+            _dropdown.interactable = _streamingCamera.CurrentCameraSettings.cameraView != CameraView.FirstPerson;
+            _dropdown.SetValueWithoutNotify((int)_streamingCamera.CurrentCameraSettings.lookType);
         }
     }
 }

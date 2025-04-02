@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using BeamXR.Streaming.Core;
+using System.Collections;
 
 namespace BeamXR.Director.ControlPanel
 {
@@ -51,6 +52,7 @@ namespace BeamXR.Director.ControlPanel
             switch (_streamingManager.StreamingState)
             {
                 case StreamingState.Disconnected:
+                case StreamingState.Error:
                     _streamingManager.StartStreaming();
                     break;
                 case StreamingState.Streaming:
@@ -68,6 +70,7 @@ namespace BeamXR.Director.ControlPanel
             switch (state)
             {
                 case StreamingState.Disconnected:
+                case StreamingState.Error:
                     _streamingButtonText.text = "Start Streaming";
                     break;
                 case StreamingState.Streaming:
@@ -81,11 +84,7 @@ namespace BeamXR.Director.ControlPanel
                 case StreamingState.Disconnecting:
                     _streamingButtonText.text = "Stopping Stream...";
                     break;
-                case StreamingState.Error:
-                    _streamingButtonText.text = "Stream Error";
-                    break;
             }
-
         }
 
         private void RecordingClick()

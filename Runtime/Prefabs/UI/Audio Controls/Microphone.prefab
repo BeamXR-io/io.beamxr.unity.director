@@ -32,6 +32,7 @@ RectTransform:
   - {fileID: 8560135574172886406}
   - {fileID: 7105835410039002229}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -62,12 +63,19 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 458518519768119314}
     m_Modifications:
+    - target: {fileID: 47836758228894437, guid: e91da168bfae1264d94d17d2a8f8d17a, type: 3}
+      propertyPath: m_fontSize
+      value: 8.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7541776215758078907, guid: e91da168bfae1264d94d17d2a8f8d17a, type: 3}
       propertyPath: m_Name
       value: Mic Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015742512549108525, guid: e91da168bfae1264d94d17d2a8f8d17a, type: 3}
+      propertyPath: m_fontSize
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 9056437983481120906, guid: e91da168bfae1264d94d17d2a8f8d17a, type: 3}
       propertyPath: m_Pivot.x
@@ -76,6 +84,10 @@ PrefabInstance:
     - target: {fileID: 9056437983481120906, guid: e91da168bfae1264d94d17d2a8f8d17a, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056437983481120906, guid: e91da168bfae1264d94d17d2a8f8d17a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9056437983481120906, guid: e91da168bfae1264d94d17d2a8f8d17a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -150,9 +162,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91da168bfae1264d94d17d2a8f8d17a, type: 3}
 --- !u!114 &1639893407053614198 stripped
 MonoBehaviour:
@@ -197,7 +206,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 458518519768119314}
     m_Modifications:
     - target: {fileID: 1690940891980523011, guid: bc37401edee2fef4ca18d9398f2a54b9, type: 3}
@@ -211,6 +219,10 @@ PrefabInstance:
     - target: {fileID: 5721407790116364506, guid: bc37401edee2fef4ca18d9398f2a54b9, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721407790116364506, guid: bc37401edee2fef4ca18d9398f2a54b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5721407790116364506, guid: bc37401edee2fef4ca18d9398f2a54b9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -285,9 +297,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc37401edee2fef4ca18d9398f2a54b9, type: 3}
 --- !u!114 &5979946220265947025 stripped
 MonoBehaviour:

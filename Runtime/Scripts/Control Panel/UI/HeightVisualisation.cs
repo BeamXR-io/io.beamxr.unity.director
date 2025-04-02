@@ -42,8 +42,8 @@ namespace BeamXR.Director.ControlPanel
 
         protected override void UpdateSettings()
         {
-            float camHeight = _cameraController.CurrentSettings.cameraHeight;
-            float headHeight = _cameraController.CurrentSettings.headHeight;
+            float camHeight = _streamingCamera.CurrentCameraSettings.cameraHeight;
+            float headHeight = _streamingCamera.CurrentCameraSettings.headHeight;
 
             Vector3 camPos = _lineRenderer.GetPosition(0), headPos = _lineRenderer.GetPosition(1);
 

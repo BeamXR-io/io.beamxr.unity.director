@@ -10,22 +10,22 @@ namespace BeamXR.Director.ControlPanel
 
         protected override string UpdateText()
         {
-            return _cameraController.CurrentSettings.fieldOfView.ToString();
+            return _streamingCamera.CurrentCameraSettings.fieldOfView.ToString();
         }
 
         protected override void Minus()
         {
-            _cameraController.UpdateCameraSettings(ChangeFOV(-_fovChangeAmount));
+            _streamingCamera.UpdateCameraSettings(ChangeFOV(-_fovChangeAmount));
         }
 
         protected override void Plus()
         {
-            _cameraController.UpdateCameraSettings(ChangeFOV(_fovChangeAmount));
+            _streamingCamera.UpdateCameraSettings(ChangeFOV(_fovChangeAmount));
         }
 
         private CameraSettings ChangeFOV(int amount)
         {
-            CameraSettings settings = _cameraController.CurrentSettings;
+            CameraSettings settings = _streamingCamera.CurrentCameraSettings;
 
             settings.fieldOfView = Mathf.Clamp(settings.fieldOfView + amount, _minimumFov, _maximumFov);
 

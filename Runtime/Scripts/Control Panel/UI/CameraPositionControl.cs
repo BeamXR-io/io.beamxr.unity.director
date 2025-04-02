@@ -37,8 +37,8 @@ namespace BeamXR.Director.ControlPanel
 
         protected override void UpdateSettings()
         {
-            bool interactable = _cameraController.CurrentSettings.cameraView == CameraView.ThirdPerson;
-            int ind = _degrees.IndexOf((int)_cameraController.CurrentSettings.yAngle);
+            bool interactable = _streamingCamera.CurrentCameraSettings.cameraView == CameraView.ThirdPerson;
+            int ind = _degrees.IndexOf((int)_streamingCamera.CurrentCameraSettings.yAngle);
             for (int i = 0; i < _toggles.Count; i++)
             {
                 _toggles[i].interactable = interactable;
@@ -51,9 +51,9 @@ namespace BeamXR.Director.ControlPanel
         {
             if (on)
             {
-                CameraSettings settings = _cameraController.CurrentSettings;
+                CameraSettings settings = _streamingCamera.CurrentCameraSettings;
                 settings.yAngle = angle;
-                _cameraController.UpdateCameraSettings(settings);
+                _streamingCamera.UpdateCameraSettings(settings);
             }
         }
     }
