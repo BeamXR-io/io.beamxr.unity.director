@@ -22,13 +22,13 @@ namespace BeamXR.Director.ControlPanel
 
         private void ChangeHeight(float increment)
         {
-            CameraSettings settings = _cameraController.CurrentSettings;
+            CameraSettings settings = _streamingCamera.CurrentCameraSettings;
 
             settings.cameraHeight = Mathf.Clamp(settings.cameraHeight + increment, -2f, 2f);
 
             settings.cameraHeight = Mathf.Round(settings.cameraHeight * 10f) / 10f;
 
-            _cameraController.UpdateCameraSettings(settings);
+            _streamingCamera.UpdateCameraSettings(settings);
         }
 
         protected override string UpdateText()

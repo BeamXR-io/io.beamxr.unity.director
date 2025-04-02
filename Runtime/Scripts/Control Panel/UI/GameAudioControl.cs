@@ -20,7 +20,7 @@ namespace BeamXR.Director.ControlPanel
 
         protected override void Toggle(bool value)
         {
-            BeamStreamingManager.Instance.RecordGameAudio = value;
+            
         }
 
         protected override void UpdateVisual()
@@ -28,7 +28,6 @@ namespace BeamXR.Director.ControlPanel
             if (BeamStreamingManager.Instance != null)
             {
                 UpdateText(Mathf.Round(BeamStreamingManager.Instance.GameVolume * 100f) + "%");
-                _enabledToggle.SetIsOnWithoutNotify(BeamStreamingManager.Instance.RecordGameAudio);
             }
         }
     }

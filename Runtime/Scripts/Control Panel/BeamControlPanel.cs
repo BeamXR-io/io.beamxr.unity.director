@@ -13,10 +13,8 @@ namespace BeamXR.Director.ControlPanel
         [SerializeField]
         private BeamLoginFlow _loginFlow;
 
-        [Header("Camera Control"), SerializeField]
-        private BeamCameraController _cameraController;
 
-        [SerializeField]
+        [Header("Camera Control"), SerializeField]
         private float _distanceFromPlayer = 0.5f, _heightFromPlayer = -0.5f;
 
         public UnityEvent<bool> OnControlPanelVisible;
@@ -43,10 +41,6 @@ namespace BeamXR.Director.ControlPanel
             if(_loginFlow == null)
             {
                 _loginFlow = GetComponentInChildren<BeamLoginFlow>(true);
-            }
-            if(_cameraController == null)
-            {
-                _cameraController = FindFirstObjectByType<BeamCameraController>(FindObjectsInactive.Include);
             }
         }
 

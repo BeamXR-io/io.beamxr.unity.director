@@ -7,7 +7,7 @@ namespace BeamXR.Director.ControlPanel
 {
     public abstract class BeamCameraControlElement : MonoBehaviour
     {
-        protected BeamCameraController _cameraController;
+        protected BeamStreamingCamera _streamingCamera;
 
         protected virtual void Awake()
         {
@@ -16,26 +16,26 @@ namespace BeamXR.Director.ControlPanel
 
         private void FindParts()
         {
-            if(_cameraController == null)
+            if(_streamingCamera == null)
             {
-                _cameraController = FindFirstObjectByType<BeamCameraController>(FindObjectsInactive.Include);
+                _streamingCamera = FindFirstObjectByType<BeamStreamingCamera>(FindObjectsInactive.Include);
             }
         }
 
         protected virtual void OnEnable()
         {
             UpdateSettings();
-            if (_cameraController != null)
+            if (_streamingCamera != null)
             {
-                _cameraController.OnCameraSettingsChanged.AddListener(UpdateSettings);
+                _streamingCamera.OnCameraSettingsChanged.AddListener(UpdateSettings);
             }
         }
 
         protected virtual void OnDisable()
         {
-            if (_cameraController != null)
+            if (_streamingCamera != null)
             {
-                _cameraController.OnCameraSettingsChanged.RemoveListener(UpdateSettings);
+                _streamingCamera.OnCameraSettingsChanged.RemoveListener(UpdateSettings);
             }
         }
 

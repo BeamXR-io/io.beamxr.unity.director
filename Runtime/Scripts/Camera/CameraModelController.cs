@@ -11,9 +11,6 @@ namespace BeamXR.Director.Camera
         private BeamControlPanel _controlPanel;
 
         [SerializeField]
-        private BeamCameraController _cameraController;
-
-        [SerializeField]
         private Renderer _streamingStatus, _recordingStatus;
 
         [SerializeField]
@@ -35,7 +32,7 @@ namespace BeamXR.Director.Camera
 
             FindParts();
 
-            _cameraController.OnCameraSettingsChanged.AddListener(ChangeViewStatus);
+            _streamingCamera.OnCameraSettingsChanged.AddListener(ChangeViewStatus);
             _controlPanel.OnControlPanelVisible.AddListener(ChangeControlPanelState);
 
             _idle = new MaterialPropertyBlock();
@@ -64,10 +61,6 @@ namespace BeamXR.Director.Camera
             if (_controlPanel == null)
             {
                 _controlPanel = FindFirstObjectByType<BeamControlPanel>(FindObjectsInactive.Include);
-            }
-            if (_cameraController == null)
-            {
-                _cameraController = FindFirstObjectByType<BeamCameraController>(FindObjectsInactive.Include);
             }
         }
 
@@ -124,7 +117,7 @@ namespace BeamXR.Director.Camera
 
         private void ChangeViewStatus()
         {
-            _notFirstPerson = _cameraController.CurrentSettings.cameraView != CameraView.FirstPerson;
+            _notFirstPerson = _streamingCamera.CurrentCameraSettings.cameraView != CameraView.FirstPerson;
             ChangeEnabled();
         }
 

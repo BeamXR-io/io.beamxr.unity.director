@@ -6,14 +6,14 @@ namespace BeamXR.Director.Camera
     public abstract class BeamCameraControllerComponent : MonoBehaviour
     {
         [SerializeField, HideInInspector]
-        protected BeamCameraController _cameraController = null;
+        protected BeamStreamingCamera _streamingCamera = null;
 
         protected virtual void Awake()
         {
             FindParts();
-            if (_cameraController != null)
+            if (_streamingCamera != null)
             {
-                _cameraController.OnCameraSettingsChanged.AddListener(CameraSettingsChanged);
+                _streamingCamera.OnCameraSettingsChanged.AddListener(CameraSettingsChanged);
             }
         }
 
@@ -24,9 +24,9 @@ namespace BeamXR.Director.Camera
 
         protected void FindParts()
         {
-            if (_cameraController == null)
+            if (_streamingCamera == null)
             {
-                _cameraController = FindFirstObjectByType<BeamCameraController>(FindObjectsInactive.Include);
+                _streamingCamera = FindFirstObjectByType<BeamStreamingCamera>(FindObjectsInactive.Include);
             }
         }
 

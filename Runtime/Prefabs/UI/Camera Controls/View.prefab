@@ -184,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bf0a9e1c2c40e479148f2de0afda01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraController: {fileID: 0}
   _dropdown: {fileID: 8315565068854006436}
 --- !u!1001 &946041642127878271
 PrefabInstance:
@@ -281,6 +280,14 @@ PrefabInstance:
     - target: {fileID: 5748664354985971768, guid: fee12a780c1b5e24984e2f3513f999a8, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099471933341367003, guid: fee12a780c1b5e24984e2f3513f999a8, type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099471933341367003, guid: fee12a780c1b5e24984e2f3513f999a8, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[2].m_Text
+      value: Object Attached
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

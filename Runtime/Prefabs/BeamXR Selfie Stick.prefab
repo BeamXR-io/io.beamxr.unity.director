@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3330235523541868909}
   - component: {fileID: 9159788216477263733}
-  - component: {fileID: 4048936895572896261}
+  - component: {fileID: 3447690087899820177}
   - component: {fileID: 999649885892027015}
   - component: {fileID: 7017349451893912654}
   - component: {fileID: 6197082133308615552}
@@ -135,10 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03640f07258401e47b623c8bb18fab41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraController: {fileID: 0}
+  _streamingCamera: {fileID: 0}
   _spawnPoint: {fileID: 0}
   _cameraTransform: {fileID: 508744216557800673}
---- !u!114 &4048936895572896261
+--- !u!114 &3447690087899820177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,10 +147,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5645485257871388764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 465a965ca58fecf41958de602a9879ff, type: 3}
+  m_Script: {fileID: 308950545, guid: 9af1aae2ae34f9148a0e4534cd24bf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideFromCamera: 1
+  _streamingCamera: {fileID: 0}
+  _hideType: 1
+  _changeObjectLayer: 1
+  _hideRenderers: 1
+  _hideCanvases: 1
 --- !u!54 &999649885892027015
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -7,22 +7,6 @@ namespace BeamXR.Director.ControlPanel
 {
     public class PresetButtons : BeamCameraControlElement
     {
-        private BeamCameraPresets _presets = null;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            FindParts();
-        }
-
-        private void FindParts()
-        {
-            if(_presets == null)
-            {
-                _presets = FindFirstObjectByType<BeamCameraPresets>(FindObjectsInactive.Include);
-            }
-        }
-
         protected override void UpdateSettings()
         {
 
@@ -30,17 +14,22 @@ namespace BeamXR.Director.ControlPanel
 
         public void ApplyDefaultPreset()
         {
-            _cameraController.SetToDefaultCamera();
+            _streamingCamera.SetToDefaultCamera();
         }
 
         public void ApplyPreset(int preset)
         {
-            _presets.LoadPreset(preset);
+            _streamingCamera.LoadPreset(preset);
         }
 
         public void SavePreset(int preset)
         {
-            _presets.SaveCurrentCamera(preset);
+            _streamingCamera.SaveCurrentCamera(preset);
+        }
+
+        public void ResetPresets()
+        {
+            _streamingCamera.ResetAllPresets();
         }
     }
 }

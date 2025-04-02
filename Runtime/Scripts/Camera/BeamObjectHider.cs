@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using BeamXR.Streaming.Core.Media;
 using UnityEngine;
 
 namespace BeamXR.Director.Camera
 {
+    [Obsolete("Please use the BeamObjectHider in the BeamXR Core package. This script will be removed in a future release.", true)]
     public class BeamObjectHider : MonoBehaviour
     {
         public enum HideType
@@ -14,7 +16,7 @@ namespace BeamXR.Director.Camera
         }
 
         [SerializeField, HideInInspector]
-        private BeamCameraController _cameraController;
+        private BeamStreamingCamera _streamingCamera;
 
         [SerializeField]
         private HideType _hideType = HideType.Hidden;
@@ -54,10 +56,10 @@ namespace BeamXR.Director.Camera
             }
 
             FindParts();
-            if(_cameraController != null)
+            if(_streamingCamera != null)
             {
                 CameraSettingsChanged();
-                _cameraController.OnCameraSettingsChanged.AddListener(CameraSettingsChanged);
+                _streamingCamera.OnCameraSettingsChanged.AddListener(CameraSettingsChanged);
             }
         }
 
@@ -72,9 +74,9 @@ namespace BeamXR.Director.Camera
 
         private void FindParts()
         {
-            if (_cameraController == null)
+            if (_streamingCamera == null)
             {
-                _cameraController = FindFirstObjectByType<BeamCameraController>(FindObjectsInactive.Include);
+                _streamingCamera = FindFirstObjectByType<BeamStreamingCamera>(FindObjectsInactive.Include);
             }
         }
 
@@ -161,7 +163,7 @@ namespace BeamXR.Director.Camera
 
         private void CameraSettingsChanged()
         {
-            _cameraInFirstPerson = _cameraController.CurrentSettings.cameraView == CameraView.FirstPerson;
+            _cameraInFirstPerson = _streamingCamera.CurrentCameraSettings.cameraView == CameraView.FirstPerson;
             UpdateHide();
         }
     }
