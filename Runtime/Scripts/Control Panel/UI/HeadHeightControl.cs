@@ -1,6 +1,4 @@
 using BeamXR.Streaming.Core.Media;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BeamXR.Director.ControlPanel
@@ -34,6 +32,14 @@ namespace BeamXR.Director.ControlPanel
         protected override string UpdateText()
         {
             return "";
+        }
+
+        protected override void UpdateSettings()
+        {
+            base.UpdateSettings();
+            bool interactable = _streamingCamera.CurrentCameraSettings.cameraView != CameraView.FirstPerson && _streamingCamera.CurrentCameraSettings.lookType != CameraLookType.Direction;
+            _plus.interactable = interactable;
+            _minus.interactable = interactable;
         }
     }
 }

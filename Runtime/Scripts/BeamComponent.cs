@@ -7,10 +7,10 @@ namespace BeamXR.Director
     public class BeamComponent : MonoBehaviour
     {
         [SerializeField, HideInInspector]
-        protected BeamStreamingManager _streamingManager;
+        protected BeamManager _beamManager;
 
         [SerializeField, HideInInspector]
-        protected BeamStreamingCamera _streamingCamera;
+        protected BeamCamera _beamCamera;
 
         [SerializeField, HideInInspector]
         protected BeamUnityEvents _unityEvents;
@@ -25,21 +25,21 @@ namespace BeamXR.Director
             FindParts();
         }
 
-        private void FindParts()
+        protected virtual void FindParts()
         {
             if (_unityEvents == null)
             {
                 _unityEvents = FindFirstObjectByType<BeamUnityEvents>(FindObjectsInactive.Include);
             }
 
-            if (_streamingManager == null)
+            if (_beamManager == null)
             {
-                _streamingManager = FindFirstObjectByType<BeamStreamingManager>(FindObjectsInactive.Include);
+                _beamManager = FindFirstObjectByType<BeamManager>(FindObjectsInactive.Include);
             }
 
-            if (_streamingCamera == null)
+            if (_beamCamera == null)
             {
-                _streamingCamera = FindFirstObjectByType<BeamStreamingCamera>(FindObjectsInactive.Include);
+                _beamCamera = FindFirstObjectByType<BeamCamera>(FindObjectsInactive.Include);
             }
         }
     }

@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: c8d815b4b37a2d84bafba1a2cd313bdc
+guid: b48470ca649128849877b2d894191141
+labels:
+- BeamXR
 PrefabImporter:
   externalObjects: {}
   userData: 

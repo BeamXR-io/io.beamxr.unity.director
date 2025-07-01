@@ -10,12 +10,12 @@ namespace BeamXR.Director.ControlPanel
 
         protected override void Minus()
         {
-            BeamStreamingManager.Instance.GameVolume = Mathf.Round(Mathf.Clamp(BeamStreamingManager.Instance.GameVolume - _gameAudioChangeAmount, _minimumAudio, _maximumAudio) * 100f) / 100f;
+            BeamManager.Instance.GameVolume = Mathf.Round(Mathf.Clamp(BeamManager.Instance.GameVolume - _gameAudioChangeAmount, _minimumAudio, _maximumAudio) * 100f) / 100f;
         }
 
         protected override void Plus()
         {
-            BeamStreamingManager.Instance.GameVolume = Mathf.Round(Mathf.Clamp(BeamStreamingManager.Instance.GameVolume + _gameAudioChangeAmount, _minimumAudio, _maximumAudio) * 100f) / 100f;
+            BeamManager.Instance.GameVolume = Mathf.Round(Mathf.Clamp(BeamManager.Instance.GameVolume + _gameAudioChangeAmount, _minimumAudio, _maximumAudio) * 100f) / 100f;
         }
 
         protected override void Toggle(bool value)
@@ -25,9 +25,9 @@ namespace BeamXR.Director.ControlPanel
 
         protected override void UpdateVisual()
         {
-            if (BeamStreamingManager.Instance != null)
+            if (BeamManager.Instance != null)
             {
-                UpdateText(Mathf.Round(BeamStreamingManager.Instance.GameVolume * 100f) + "%");
+                UpdateText(Mathf.Round(BeamManager.Instance.GameVolume * 100f) + "%");
             }
         }
     }

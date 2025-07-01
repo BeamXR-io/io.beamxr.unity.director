@@ -1,8 +1,5 @@
 using BeamXR.Streaming.Core.Media;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace BeamXR.Director.ControlPanel
 {
@@ -14,8 +11,12 @@ namespace BeamXR.Director.ControlPanel
         protected override void UpdateSettings()
         {
             base.UpdateSettings();
-            _minus.interactable = _streamingCamera.CurrentCameraSettings.cameraView != CameraView.FirstPerson;
-            _plus.interactable = _streamingCamera.CurrentCameraSettings.cameraView != CameraView.FirstPerson;
+            _minus.interactable = _streamingCamera.CurrentCameraSettings.cameraView != CameraView.FirstPerson
+                && _streamingCamera.CurrentCameraSettings.lookType != CameraLookType.Direction
+                && _streamingCamera.CurrentCameraSettings.lookType != CameraLookType.Inverted;
+            _plus.interactable = _streamingCamera.CurrentCameraSettings.cameraView != CameraView.FirstPerson
+                && _streamingCamera.CurrentCameraSettings.lookType != CameraLookType.Direction
+                && _streamingCamera.CurrentCameraSettings.lookType != CameraLookType.Inverted;
         }
 
         protected override string UpdateText()

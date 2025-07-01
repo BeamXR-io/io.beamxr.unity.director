@@ -35,15 +35,15 @@ namespace BeamXR.Director.ControlPanel
                 _unityEvents.OnRecordingStarted.AddListener(RecordingStarted);
                 _unityEvents.OnRecordingEnded.AddListener(RecordingEnded);
             }
-            StreamStateChange(_streamingManager.StreamingState);
+            StreamStateChange(_beamManager.StreamingState);
 
-            if (_streamingManager.IsRecording)
+            if (_beamManager.IsCloudRecording)
             {
-                RecordingStarted();
+                RecordingStarted(CaptureType.Cloud);
             }
             else
             {
-                RecordingEnded();
+                RecordingEnded(CaptureType.Cloud);
             }
         }
 
@@ -70,7 +70,7 @@ namespace BeamXR.Director.ControlPanel
                 case StreamingState.Streaming:
                     _statusIcon.SetColor(_streamingColor);
                     _statusIcon.SetSprite(_activeIcon);
-                    _fpsText.text = BeamStreamingManager.Instance.SessionState.FrameRate.ToString() + " FPS";
+                    _fpsText.text = BeamManager.Instance.SessionState.FrameRate.ToString() + " FPS";
                     _statusIcon.SetPulsing(true);
                     break;
                 case StreamingState.CreatingSession:
@@ -112,7 +112,7 @@ namespace BeamXR.Director.ControlPanel
             return "";
         }
 
-        private void RecordingStarted()
+        private void RecordingStarted(CaptureType type)
         {
             _recordingStatusIcon.SetColor(_recordingColor);
             _recordingStatusIcon.SetSprite(_activeIcon);
@@ -120,7 +120,7 @@ namespace BeamXR.Director.ControlPanel
             _recordingStatusText.text = "Recording";
         }
 
-        private void RecordingEnded()
+        private void RecordingEnded(CaptureType type)
         {
             _recordingStatusIcon.SetPulsing(false);
             _recordingStatusIcon.SetSprite(_idleIcon);
