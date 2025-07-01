@@ -52,7 +52,7 @@ namespace BeamXR.Director.ControlPanel
         private void StreamStarted()
         {
             ClearButtons();
-            foreach (var item in BeamStreamingManager.Instance.SessionState.StreamPlatforms)
+            foreach (var item in BeamManager.Instance.SessionState.StreamPlatforms)
             {
                 AddButton(item);
             }
@@ -106,7 +106,7 @@ namespace BeamXR.Director.ControlPanel
         private void ClickButton(StreamButton button)
         {
             StartCoroutine(DelayClick(button));
-            BeamStreamingManager.Instance.ToggleSocialStream(button.platform);
+            BeamManager.Instance.ToggleSocialStream(button.platform);
         }
 
         private IEnumerator DelayClick(StreamButton button)

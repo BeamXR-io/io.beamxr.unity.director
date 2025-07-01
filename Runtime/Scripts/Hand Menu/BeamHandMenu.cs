@@ -105,6 +105,9 @@ namespace BeamXR.Director.HandMenu
             {
                 for (int i = 0; i < _wristTransforms.Count; i++)
                 {
+                    if (_wristTransforms[i].transform == null)
+                        continue;
+
                     visible = MenuVisible(_wristTransforms[i]);
                     if(visible)
                     {

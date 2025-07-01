@@ -1,36 +1,40 @@
 {
-  "name": "io.beamxr.unity.director",
-  "author": {
-    "name": "BeamXR",
-    "email": "support@beamxr.io"
-  },
-  "displayName": "BeamXR Director Kit",
-  "version": "0.1.4",
-  "description": "The package provides useful tools to enhance and improve your game's streams and recordings.",
-  "keywords": [
-    "oculus",
-    "vr",
-    "Standalone",
-    "Meta",
-    "Quest",
-    "Streaming",
-    "Twitch"
-  ],
-  "documentationUrl": "https://docs.beamxr.io/",
-  "dependencies": {
-    "io.beamxr.unity.streaming": "0.8.0",
-    "com.unity.textmeshpro": "3.0.0"
-  },
-  "samples": [
-    {
-        "displayName": "Director XRI Example",
-        "description": "A quick start scene showing off all the features of the Director package. XRI 3.0 Compatible.",
-        "path": "Examples~/Director Example"
+    "name": "io.beamxr.unity.director",
+    "author": {
+        "name": "BeamXR",
+        "email": "support@beamxr.io"
     },
-    {
-        "displayName": "Director Meta Example",
-        "description": "A quick start scene showing off all the features of the Director package. Meta Compatible.",
-        "path": "Examples~/Director Example - Meta"
-    }
-  ]
+    "displayName": "BeamXR Director Kit",
+    "version": "1.0.0",
+    "description": "Simplify and enhance your BeamXR streaming and recording experience with our feature rich Director Kit.",
+    "keywords": [
+        "oculus",
+        "vr",
+        "xr",
+        "Standalone",
+        "Meta",
+        "Quest",
+        "Streaming",
+        "Twitch",
+        "YouTube",
+        "TikTok"
+    ],
+    "changelogUrl": "https://docs.beamxr.io/changelogs/director-kit-changelog",
+    "documentationUrl": "https://docs.beamxr.io/",
+    "dependencies": {
+        "io.beamxr.unity.streaming": "1.0.0",
+        "com.unity.textmeshpro": "3.0.0"
+    },
+    "samples": [
+        {
+            "displayName": "Director XRI Example",
+            "description": "A quick start scene showing off all the features of the Director package. XRI Compatible.",
+            "path": "Examples~/Director Example"
+        },
+        {
+            "displayName": "Director Meta Example",
+            "description": "A quick start scene showing off all the features of the Director package. Meta Compatible.",
+            "path": "Examples~/Director Example - Meta"
+        }
+    ]
 }

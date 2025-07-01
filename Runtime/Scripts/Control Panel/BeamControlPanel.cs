@@ -1,98 +1,159 @@
 using UnityEngine;
-using BeamXR.Streaming.Core.Media;
-using BeamXR.Streaming;
 using UnityEngine.Events;
+using BeamXR.Streaming.Core;
 
 namespace BeamXR.Director.ControlPanel
 {
     public class BeamControlPanel : BeamComponent
     {
         [SerializeField]
-        private GameObject _controlsParent;
+        private BeamCorePanel _corePanel;
 
         [SerializeField]
-        private BeamLoginFlow _loginFlow;
+        private BeamSettingsPanel _settingsPanel;
 
+        [SerializeField]
+        private BeamAccountPanel _accountPanel;
 
-        [Header("Camera Control"), SerializeField]
-        private float _distanceFromPlayer = 0.5f, _heightFromPlayer = -0.5f;
+        [SerializeField]
+        private BeamToaster _toasts;
+        public BeamToaster Toasts => _toasts;
+
+        [Header("Positioning"), SerializeField]
+        private float _distanceFromPlayer = 0.5f;
+        [SerializeField]
+        private float _heightFromPlayer = -0.5f;
+
+        public const string LiveColorHex = "#58D779";
+        public const string RecordingColorHex = "#E55153";
+
+        [SerializeField]
+        private ButtonAnimator _settingsButton;
+        private bool _settingsOpen = false;
 
         public UnityEvent<bool> OnControlPanelVisible;
 
         private Transform _cameraTransform;
 
-        protected override void OnValidate()
+        private StreamingState _oldStreamState;
+        private RecordingState _oldRecordState;
+
+        protected override void FindParts()
         {
-            base.OnValidate();
-            FindParts();
+            base.FindParts();
+            if (_corePanel == null)
+            {
+                _corePanel = GetComponentInChildren<BeamCorePanel>(true);
+            }
+            if (_settingsPanel == null)
+            {
+                _settingsPanel = GetComponentInChildren<BeamSettingsPanel>(true);
+            }
+            if (_accountPanel == null)
+            {
+                _accountPanel = GetComponentInChildren<BeamAccountPanel>(true);
+            }
+            if (_toasts == null)
+            {
+                _toasts = GetComponent<BeamToaster>();
+            }
         }
 
         protected override void Awake()
         {
             base.Awake();
             FindParts();
-            _unityEvents.OnAuthenticationChanged.AddListener(AuthenticationChanged);
-            AuthenticationChanged(_streamingManager.AuthState);
             _cameraTransform = UnityEngine.Camera.main.transform;
-        }
-
-        private void FindParts()
-        {
-            if(_loginFlow == null)
+            _settingsPanel.gameObject.SetActive(false);
+            if (_settingsButton != null)
             {
-                _loginFlow = GetComponentInChildren<BeamLoginFlow>(true);
+                _settingsButton.OnClick += () =>
+                {
+                    _settingsOpen = !_settingsOpen;
+                    _settingsButton.ForcePressed(_settingsOpen);
+                    _settingsPanel.gameObject.SetActive(_settingsOpen);
+                };
             }
         }
 
         private void OnEnable()
         {
-            SetControlsState(_streamingManager.AuthState == AuthenticationState.Authenticated);
-            
-            if(_cameraTransform == null)
-            {
-                _cameraTransform = UnityEngine.Camera.main.transform;
-            }
-            
-            if(_cameraTransform != null)
-            {
-                Vector3 pos = _cameraTransform.position + (_cameraTransform.forward * _distanceFromPlayer);
-                pos.y = (_cameraTransform.position.y + _heightFromPlayer);
-                transform.position = pos;
-                transform.rotation = Quaternion.Euler(0, _cameraTransform.rotation.eulerAngles.y, 0);
-            }
+            _corePanel.gameObject.SetActive(true);
+
+            OpenPanelLogic(true);
 
             OnControlPanelVisible?.Invoke(true);
         }
 
         private void OnDisable()
         {
-            OnControlPanelVisible?.Invoke(false);
-        }
-
-        public void SetControlsState(bool controls)
-        {
-            _loginFlow.gameObject.SetActive(!controls);
-            _controlsParent.gameObject.SetActive(controls);
-        }
-
-        private void AuthenticationChanged(AuthenticationState state)
-        {
-            switch (state)
+            if (_corePanel.transform.parent != transform)
             {
-                case AuthenticationState.Error:
-                case AuthenticationState.NotAuthenticated:
-                case AuthenticationState.Authenticating:
-                    SetControlsState(false);
-                    break;
-                case AuthenticationState.Authenticated:
-                    SetControlsState(true);
-                    break;
+                _corePanel.transform.SetParent(transform, true);
             }
+            if (_settingsPanel.transform.parent != transform)
+            {
+                _settingsPanel.transform.SetParent(transform, true);
+            }
+
+            OnControlPanelVisible?.Invoke(false);
         }
 
         public void ToggleControlPanel()
         {
-            gameObject.SetActive(!gameObject.activeInHierarchy);
+            OpenPanelLogic(!_corePanel.gameObject.activeInHierarchy);
+            _corePanel.gameObject.SetActive(!_corePanel.gameObject.activeInHierarchy);
+            OnControlPanelVisible?.Invoke(_corePanel.gameObject.activeInHierarchy);
+        }
+
+        private void OpenPanelLogic(bool open)
+        {
+            
+            if (open)
+            {
+                if (_cameraTransform == null)
+                {
+                    _cameraTransform = UnityEngine.Camera.main.transform;
+                }
+
+                if (_cameraTransform != null)
+                {
+                    Vector3 pos = _cameraTransform.position + (_cameraTransform.forward * _distanceFromPlayer);
+                    pos.y = (_cameraTransform.position.y + _heightFromPlayer);
+                    _corePanel.transform.position = pos;
+                    _corePanel.transform.rotation = Quaternion.Euler(0, _cameraTransform.rotation.eulerAngles.y, 0);
+                }
+
+                if (_corePanel.transform.parent != transform)
+                {
+                    _corePanel.transform.SetParent(transform, true);
+                }
+                if (_settingsPanel.transform.parent != transform)
+                {
+                    _settingsPanel.transform.SetParent(transform, true);
+                }
+
+                if (_settingsOpen)
+                {
+                    _settingsPanel.gameObject.SetActive(true);
+                    _settingsButton.ForcePressed(_settingsOpen);
+                }
+            }
+            else
+            {
+                _settingsPanel.gameObject.SetActive(false);
+            }
+        }
+
+        public void OpenUserAccount()
+        {
+            if (!_settingsOpen)
+            {
+                _settingsPanel.gameObject.SetActive(true);
+                _settingsButton.ForcePressed(true);
+                _settingsOpen = true;
+            }
+            _settingsPanel.OpenPanel(_accountPanel.gameObject);
         }
     }
 }

@@ -10,25 +10,25 @@ namespace BeamXR.Director.ControlPanel
 
         protected override void Minus()
         {
-            BeamStreamingManager.Instance.MicrophoneVolume = Mathf.Round(Mathf.Clamp(BeamStreamingManager.Instance.MicrophoneVolume - _micChangeAmount, _minimumMic, _maximumMic) * 100f) / 100f;
+            BeamManager.Instance.MicrophoneVolume = Mathf.Round(Mathf.Clamp(BeamManager.Instance.MicrophoneVolume - _micChangeAmount, _minimumMic, _maximumMic) * 100f) / 100f;
         }
 
         protected override void Plus()
         {
-            BeamStreamingManager.Instance.MicrophoneVolume = Mathf.Round(Mathf.Clamp(BeamStreamingManager.Instance.MicrophoneVolume + _micChangeAmount, _minimumMic, _maximumMic) * 100f) / 100f;
+            BeamManager.Instance.MicrophoneVolume = Mathf.Round(Mathf.Clamp(BeamManager.Instance.MicrophoneVolume + _micChangeAmount, _minimumMic, _maximumMic) * 100f) / 100f;
         }
 
         protected override void Toggle(bool value)
         {
-            BeamStreamingManager.Instance.RecordMicrophoneAudio = value;
+            BeamManager.Instance.RecordMicrophoneAudio = value;
         }
 
         protected override void UpdateVisual()
         {
-            if (BeamStreamingManager.Instance != null)
+            if (BeamManager.Instance != null)
             {
-                UpdateText(Mathf.Round(BeamStreamingManager.Instance.MicrophoneVolume * 100f) + "%");
-                _enabledToggle.SetIsOnWithoutNotify(BeamStreamingManager.Instance.RecordMicrophoneAudio);
+                UpdateText(Mathf.Round(BeamManager.Instance.MicrophoneVolume * 100f) + "%");
+                _enabledToggle.SetToggle(BeamManager.Instance.RecordMicrophoneAudio, true);
             }
         }
     }

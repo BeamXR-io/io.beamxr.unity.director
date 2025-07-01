@@ -1,4 +1,3 @@
-using BeamXR.Streaming.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,44 +10,28 @@ namespace BeamXR.Director.ControlPanel
 
         private void OnEnable()
         {
-            if(_unityEvents != null)
-            {
-                _unityEvents.OnStreamStarted.AddListener(StreamingView);
-                _unityEvents.OnStreamEnded.AddListener(TempView);
-            }
+            _beamCamera.OnRenderTextureChanged.AddListener(RenderTextureChanged);
 
-            _streamingCamera?.RequestTemporaryCamera(this);
-            if(BeamStreamingManager.Instance.StreamingState == StreamingState.Streaming)
-            {
-                StreamingView();
-            }
-            else
-            {
-                TempView();
-            }
+            _cameraPreviewImage.texture = _beamCamera.RenderTexture;
+
+            _beamCamera?.RequestTemporaryCamera(this);
         }
 
         private void OnDisable()
         {
-            if(_streamingCamera != null)
+            if(_beamCamera != null)
             {
-                _streamingCamera?.ReleaseTemporaryCamera(this);
+                _beamCamera?.ReleaseTemporaryCamera(this);
             }
             if (_unityEvents != null)
             {
-				_unityEvents.OnStreamStarted.RemoveListener(StreamingView);
-				_unityEvents.OnStreamEnded.RemoveListener(TempView);
-			}
+                _beamCamera.OnRenderTextureChanged.RemoveListener(RenderTextureChanged);
+            }
         }
 
-        private void StreamingView()
+        private void RenderTextureChanged(RenderTexture texture)
         {
-            _cameraPreviewImage.texture = _streamingCamera.RenderTexture;
-        }
-
-        private void TempView()
-        {
-            _cameraPreviewImage.texture = _streamingCamera.TempTexture;
+            _cameraPreviewImage.texture = texture;
         }
     }
 }
